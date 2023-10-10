@@ -1,3 +1,4 @@
+/* Basic styles for the framework */
 * {
     margin: 0;
     padding: 0;
@@ -5,26 +6,30 @@
 }
 
 body {
-    background-color: #1c2a2e;
+    background-color: #000000; /*#1c2a2e*/
     font-family: Arial;
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "header header"
-                         "dayQuest todo"
-                         "footer footer";
-    grid-auto-flow: dense;                     
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: "header header header"
+                         "dashboard dashboard avatar"
+                         "rewards meals deamon"
+                         "healthy skills project"
+                         "footer footer footer";
+    grid-auto-flow: dense;
+    grid-gap: 10px;                     
     height: 100vh;
-    border: 5px solid #1de9b6;
+    /*border: 1px solid #1de9b6;*/
     font-size: 20px;
-    color: #40ac9d;
+    /* color: #40ac9d;  */
+    color: whitesmoke;
     text-align: center;
 }
 
-.header {
+.header-box {
     border: 2px solid #386c79;
     padding: 25px 0;
     grid-area: header;
@@ -33,120 +38,159 @@ body {
     justify-content: space-evenly;
 }
 
-.dayQuest {
+.avatar-box {
     border: 2px solid #386c79;
     padding: 25px 0;
-    grid-area: dayQuest;
+    grid-area: avatar;
 }
 
-.todo {
+.rewards-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: rewards;
+    text-align: start;
+    background-color: #848f6c;
+}
+
+.dashboard-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: dashboard;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.healthy-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: healthy;
+    text-align: start;
+    background-color: #496871;
+}
+
+.meals-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: meals;
+    text-align: start;
+    background-color: #d98594;
+}
+
+.skills-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: skills;
+    text-align: start;
+    background-color: #a4be97;
+}
+
+.deamon-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: deamon;
+    text-align: start;
+    background-color: #b79bb6;
+}
+
+.projects-box {
+    border: 2px solid #386c79;
+    padding: 25px 0;
+    grid-area: project;
+    text-align: start;
+    background-color: #88ad84;
+}
+
+/* .todo-box {
     border: 2px solid #386c79;
     padding: 25px 0;
     grid-area: todo;
-}
+} */
 
-.footer {
+.footer-box {
     border: 2px solid #386c79;
     padding: 25px 0;
     grid-area: footer;
 }
 
-.profile-avatar img {
-    max-width: 50px;
-    border-radius: 50%;
-    flex: 1;
-}
-
-/* Style for ul  */
-
-li {
-    margin: 5px 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 8px;
-    margin: 5px;
-}
-
-li span {
-    flex-grow: 1;
-    padding: auto;
-}
-
-li label {
-    margin-left: 5px;
-}
-
-/* Style for todo-list */
-
-.todo {
-    flex: 1;
-    overflow-y: auto; /* Добавим прокрутку, если содержимое больше экрана */
-}
-
-#task-input {
-    width: 60%;
-    padding: 5px;
-    background-color: #2a3d42;
-    color:#1de9b6;
-}
-
-h2 {
+.box-title {
     text-align: center;
 }
 
-#add-button {
-    padding: 5px 10px;
-    background-color: #2a3d42;
-    color: #fff;
-    border: none;
+/* Styles for header elements */
+
+/* .header-box img {
+    margin-left: 10px;
+}
+
+.logo-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 40px;
+}
+
+.slogan {
+    margin-left: 250px;
+    margin-right: 50px;
+}
+
+.version {
+    font-size: 15px;
+    margin-left: 338px;
+} */
+
+.version-text {
+    color: #838282;
+}
+
+/* .version-number {
+    margin-left: 5px;
+} */
+
+/* Styles for dashboard */
+
+.points {
+    margin: 0;
+    border-radius: 0;
+    width: 25%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    border: 2px solid #d9d9d9;
+    background: #2d525c;
+}
+
+#point-task {
+    color: aliceblue;
+}
+
+.btn {
+    padding: 10px;
+    width: 15%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
     cursor: pointer;
-}
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+.btn:hover {
+    background-color: #bbb;
+  }
+  
+/* Styles for avatar image */
 
-.delete-button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 3px 8px;
-    cursor: pointer;
-}
+.avatar-box img {
+    max-width: 90px;
+    border-radius: 50%;
+    flex: 1;
+} 
 
-.completed {
-    background-color: #868a86;
-    text-decoration: line-through;
-}
-
-#completed-count {
-    font-weight: bold;
-}
-
-@media only screen and (max-width:600px) {
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(1, 1fr);
-        grid-template-areas: "header"
-                             "dayQuest"
-                             "todo"
-                             "footer";
-        height: 100vh;
-        border: 5px solid #1de9b6;
-        font-size: 20px;
-        color: #40ac9d;
-        text-align: center;
-    }
-}
-
-/* Style for Preloader and loader */
+/* Styles for Preloader and loader */
 
 .preloader {
     position: fixed;
@@ -187,3 +231,30 @@ h2 {
     }
 }
 
+/* Styles for Footer */
+
+.footer-box a {
+    color:#d9d9d9;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Styles for timer */
+
+.timer-container {
+    text-align: center;
+    font-size: 24px;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+    position: relative;
+}
+
+#filler {
+    width: 0%;
+    height: 100%;
+    background-color: #4CAF50;
+}
