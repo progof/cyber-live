@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/boxes.css">
     <title>CyberLive</title>
 </head>
 <body>
@@ -11,81 +12,252 @@
         <div class="loader"><span id="load_perc"></span></div>
     </div>
     <div class="wrapper">
-        <header class="header">
-            <div class="app-name">
+        <!-- Header section -->
+        <header class="header-box">
+            <div class="logo-img">
+                <img src="img/logo.png" alt="CyberLive WebSite" class="logo">
+            </div>
+            <div class="logo-text">
                 <span>CyberLive</span>
-            </div>
-            <div class="profile-avatar">
-                <img src="img/robot-avatar.png">
-            </div>
-            <p id="demo"></p>
+            </div>              
+            <div class="slogan">
+                <span>Drive your time</span>
+            </div>                      
         </header>
-        <div class="dayQuest">
+        <!-- Avatar section -->
+        <div class="avatar-box">
+            <img src="img/robot-avatar.png" alt="Avatar">
+            <div class="exp">
+                <p>Exp: <span id="exp-info">0</span></p>
+            </div>
+            <div class="gold">
+                <p>Gold: <span id="gold-info">0</span></p>
+            </div>
+            <div class="family">
+                <p>Family: <span id="family-info">none</span></p>
+            </div>
+        </div>
+        <!-- Rewards section -->
+        <div class="rewards-box">
+            <h2 class="box-title">Rewards box</h2>
             <ul>
-                <li>Meals
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="task10" onchange="updateCounterAndSave()" />
-                            <label for="task10">Breakfast</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="task11" onchange="updateCounterAndSave()" />
-                            <label for="task11">Snacks</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="task12" onchange="updateCounterAndSave()" />
-                            <label for="task12">Lunch</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="task13" onchange="updateCounterAndSave()" />
-                            <label for="task13">Dinner</label>
-                        </li>
-                    </ul>
+                <li><input type="checkbox"> Gold: 1,000,000 -> Buy house</li>
+                <li><input type="checkbox"> Gold: 100,000 -> Buy car</li>
+                <li><input type="checkbox"> Gold: 5,000 -> Buy MacBook Pro</li>
+                <li><input type="checkbox"> Gold: 1,000 -> Buy Iphone Pro Max</li>
+            </ul>
+        </div>
+        <!-- Dashboard section -->
+        <div class="dashboard-box">
+            <!-- <h2 id="demo"></h2> -->
+            <div class="timer-container">
+                <div id="timer">Loading...</div>
+                <div id="progress-bar">
+                    <div id="filler"></div>
+                </div>
+            </div>
+            <div class="points">
+                <p>Points for completed tasks: <span id="point-task">0</span></p>
+            </div>
+            <button id="rest-button" onclick="resetTasks()" class="btn">Task Reset</button>
+        </div>
+        <!-- Boxes section -->
+        <div class="healthy-box">
+            <h2 class="box-title">Healthy box</h2> 
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task1" onchange="updateCounterAndSave()" />
+                        <label for="task1">Warm-up</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task2" onchange="updateCounterAndSave()" />
+                        <label for="task2">Push-up</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task3" onchange="updateCounterAndSave()" />
+                        <label for="task3">Squats</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task4" onchange="updateCounterAndSave()" />
+                        <label for="task4">Press</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task5" onchange="updateCounterAndSave()" />
+                        <label for="task5">Dumbbells</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task6" onchange="updateCounterAndSave()" />
+                        <label for="task6">Beams</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task7" onchange="updateCounterAndSave()" />
+                        <label for="task7">Glass of water</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task8" onchange="updateCounterAndSave()" />
+                        <label for="task8">Meditation</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task9" onchange="updateCounterAndSave()" />
+                        <label for="task9">Go for a walk</label>
+                    </li>
+                </ul>
+        </div>
+        <div class="meals-box">
+            <h2 class="box-title">Meals box</h2>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task10" onchange="updateCounterAndSave()" />
+                        <label for="task10">Breakfast</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task11" onchange="updateCounterAndSave()" />
+                        <label for="task11">Snacks</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task12" onchange="updateCounterAndSave()" />
+                        <label for="task12">Lunch</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task13" onchange="updateCounterAndSave()" />
+                        <label for="task13">Dinner</label>
+                    </li>
+                </ul>   
+        </div>
+        <div class="skills-box">
+            <h2 class="box-title">Skills box</h2>
+                <h3>Programming</h3>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="task14" onchange="updateCounterAndSave()" />
+                                <label for="task14">HTML</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task15" onchange="updateCounterAndSave()" />
+                                <label for="task15">CSS</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task16" onchange="updateCounterAndSave()" />
+                                <label for="task16">JS</label>
+                            </li>
+                        </ul>
+                        <h3>Learning English</h3>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="task17" onchange="updateCounterAndSave()" />
+                                <label for="task17">Read and analysis</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task18" onchange="updateCounterAndSave()" />
+                                <label for="task18">10 new words</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task19" onchange="updateCounterAndSave()" />
+                                <label for="task19">Grammar</label>
+                            </li>
+                        </ul>
+
+                        <h3>Reading a book</h3>
+                        
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="task21" onchange="updateCounterAndSave()" />
+                                <label for="task21">Dr. Elder 2 page</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task22" onchange="updateCounterAndSave()" />
+                                <label for="task22">Dla bystrzakow 2 page</label>
+                            </li>
+                        </ul>
+        </div>
+        <div class="deamon-box">
+            <h2 class="box-title">War with daemon</h2>
+            <ul>
+                <li>
+                    <input type="checkbox" id="task23" onchange="updateCounterAndSave()"> 
+                    <label for="task23">Purple daemon</label>
                 </li>
-                <li>Skills
-                    <ul>
-                        <li>Programming
-                            <ul>
-                                <li>
-                                    <input type="checkbox" id="task14" onchange="updateCounterAndSave()" />
-                                    <label for="task14">HTML</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="task15" onchange="updateCounterAndSave()" />
-                                    <label for="task15">CSS</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="task16" onchange="updateCounterAndSave()" />
-                                    <label for="task16">JS</label>
-                                </li>
-                            </ul>
-                        </li>
-            </ul>
+                <li>
+                    <input type="checkbox" id="task24" onchange="updateCounterAndSave()"> 
+                    <label for="task24">Blue daemon</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task25" onchange="updateCounterAndSave()"> 
+                    <label for="task25">Gray daemon</label>
+                </li>
+            </ul>   
         </div>
-        <div class="todo">
-            <div class="category">
-                <label for="category-select">Select Category:</label>
-                <select id="category-select">
-                    <option value="personal">Personal</option>
-                    <option value="work">Work</option>
-                    <option value="shopping">Shopping</option>
-                </select>
-            </div>
-            <div class="task">
-                <input type="text" id="task-input" placeholder="Enter your task...">
-                <button id="add-button">Add Task</button>
-            </div>
-            
-           <div id="completed-count">Completed: <span id="completed-number">0</span></div>
-            
-            <ul id="task-list">
-                <!-- Tasks will be dynamically added here -->
-            </ul>
+        <div class="projects-box">
+            <h2 class="box-title">Projects box</h2>
+                    <h3>DH</h3>    
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="task26" onchange="updateCounterAndSave()" />
+                                <label for="task26">6 publications</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task27" onchange="updateCounterAndSave()" />
+                                <label for="task27">Ideas for development 30 min</label>
+                            </li>
+                        </ul>
+                    <h3>PG</h3>     
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="task28" onchange="updateCounterAndSave()" />
+                                <label for="task28">Write a script</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task29" onchange="updateCounterAndSave()" />
+                                <label for="task29">Make a visual</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task30" onchange="updateCounterAndSave()" />
+                                <label for="task30">Reading</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task31" onchange="updateCounterAndSave()" />
+                                <label for="task31">Record audio</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task32" onchange="updateCounterAndSave()" />
+                                <label for="task32">Montage of video</label>
+                            </li>
+                        </ul>
+                    <h3>CB</h3>     
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="task33" onchange="updateCounterAndSave()" />
+                                <label for="task33">Ideas for development 30 min</label>
+                            </li>
+                        </ul>
         </div>
-        <footer class="footer">Footer</footer>
+        <!-- <div class="todo-box">
+            <h2>ToDo List</h2>
+            <div id="myDIV" class="todo-header">
+                <input type="text" id="myInput" placeholder="Title...">
+                <span onclick="newElement()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL">
+                <li>Hit the gym</li>
+                <li class="checked">Pay bills</li>
+                <li>Meet George</li>
+                <li>Buy eggs</li>
+                <li>Read a book</li>
+                <li>Organize office</li>
+              </ul>
+        </div> -->
+        <footer class="footer-box">
+            <a href="https://github.com/progof/cyberlive" target="_blank">CyberLive by Progof</a>
+            <p>version: <span class="version-text" id="version-app">none</span></p>
+        </footer>
     </div>
-    <script src="js/countdown-timer.js"></script>
-    <script src="js/todo.js"></script>
+    <!-- <script src="js/countdown-timer.js"></script> -->
+    <!-- <script src="js/todo.js"></script> -->
+    <script src="js/core.js"></script>
     <script src="js/preloader.js"></script>
+    <script src="js/timer24.js"></script>
+    <script src="js/gamefication.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

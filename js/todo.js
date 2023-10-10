@@ -1,47 +1,55 @@
-const categorySelect = document.getElementById("category-select");
-const taskInput = document.getElementById("task-input");
-const addButton = document.getElementById("add-button");
-const taskList = document.getElementById("task-list");
-const completedCount = document.getElementById("completed-number");
-
-let completedTasks = 0;
-
-addButton.addEventListener("click", addTask);
-
-function addTask() {
-    const category = categorySelect.value;
-    const taskText = taskInput.value;
-    
-    if (taskText.trim() !== "") {
-        const taskItem = document.createElement("li");
-        taskItem.className = category;
-        taskItem.innerHTML = `<span>${taskText}</span> <button class="delete-button">Delete</button>`;
-        
-        taskList.appendChild(taskItem);
-        taskInput.value = "";
-        
-        taskItem.querySelector(".delete-button").addEventListener("click", () => {
-            if (taskItem.classList.contains("completed")) {
-                completedTasks--;
-                updateCompletedCount();
-            }
-            taskList.removeChild(taskItem);
-        });
-
-        taskItem.querySelector("span").addEventListener("click", () => {
-            taskItem.classList.toggle("completed");
-            if (taskItem.classList.contains("completed")) {
-                completedTasks++;
-            } else {
-                completedTasks--;
-            }
-            updateCompletedCount();
-        });
-    }else {
-        alert("Please Enter Task");
-    }
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
 }
 
-function updateCompletedCount() {
-    completedCount.textContent = completedTasks;
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
 }
